@@ -1,0 +1,654 @@
+<div id="vikings-screen">
+
+  <div class="vk-header">
+    <div class="vk-heading">
+      <div class="vk-last">LAATSTE</div>
+      <div class="vk-results-title">UITSLAGEN</div>
+    </div>
+
+    <div class="vk-name">
+      VIKINGS<br>HARDENBERG
+    </div>
+  </div>
+
+  <div class="vk-line"></div>
+
+  <div id="vk-results">
+    <div class="vk-message">Uitslagen laden...</div>
+  </div>
+
+  <div class="vk-footer">
+    <span>BV VIKINGS HARDENBERG</span>
+    <span id="vk-updated"></span>
+  </div>
+
+</div>
+
+<style>
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+#vikings-screen {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  box-sizing: border-box;
+  overflow: hidden;
+
+  padding: 4vh 4vw 2.5vh 4vw;
+
+  background: linear-gradient(
+    115deg,
+    #071d3d 0%,
+    #0d497c 62%,
+    #0585b7 100%
+  );
+
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: grid;
+  grid-template-rows: 18vh 0.8vh 1fr 5vh;
+  row-gap: 2vh;
+}
+
+
+/* KOP */
+
+.vk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.vk-heading {
+  font-weight: 900;
+  line-height: 0.92;
+}
+
+.vk-last {
+  color: #ffffff;
+  font-size: 6vh;
+  letter-spacing: 0.04em;
+}
+
+.vk-results-title {
+  color: #ffd21c;
+  font-size: 6vh;
+  letter-spacing: 0.04em;
+  margin-top: 2.4vh;
+}
+
+.vk-name {
+  color: #ffffff;
+  text-align: right;
+  font-size: 2.2vh;
+  line-height: 1.35;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-top: 0.5vh;
+}
+
+
+/* GELE LIJN */
+
+.vk-line {
+  width: 100%;
+  height: 0.8vh;
+  background: #ffd21c;
+}
+
+
+/* RESULTATEN */
+
+#vk-results {
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  gap: 1vh;
+}
+
+
+/* ÉÉN WEDSTRIJD */
+
+.vk-match {
+  min-width: 0;
+  min-height: 0;
+
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    18vw
+    minmax(0, 1fr);
+
+  column-gap: 2vw;
+  align-items: center;
+
+  padding: 0 1.5vw;
+
+  background: rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+
+/* TEAMVAKKEN */
+
+.vk-team {
+  min-width: 0;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vk-home {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.vk-away {
+  text-align: right;
+  align-items: flex-end;
+}
+
+
+/* CLUBNAAM */
+
+.vk-org {
+  width: 100%;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 1.35vh;
+  line-height: 1;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  margin-bottom: 0.6vh;
+}
+
+
+/* TEAMNAAM */
+
+.vk-team-name {
+  width: 100%;
+
+  color: #ffffff;
+
+  font-size: 2.8vh;
+  line-height: 1;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* VIKINGS IN GEEL */
+
+.vk-vikings .vk-org {
+  color: rgba(255, 210, 28, 0.80);
+}
+
+.vk-vikings .vk-team-name {
+  color: #ffd21c;
+  font-weight: 900;
+}
+
+
+/* SCORE */
+
+.vk-score {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  color: #ffffff;
+
+  font-size: 4.6vh;
+  line-height: 1;
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+.vk-home-score {
+  text-align: right;
+}
+
+.vk-away-score {
+  text-align: left;
+}
+
+.vk-dash {
+  color: #ffd21c;
+  font-size: 3.5vh;
+  padding: 0 1vw;
+}
+
+
+/* FOOTER */
+
+.vk-footer {
+  min-width: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 1.4vh;
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* MELDING */
+
+.vk-message {
+  grid-row: 1 / 6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+
+  font-size: 3vh;
+  font-weight: 700;
+}
+</style>
+
+<script>
+(function () {
+
+  const CLUB_ID =
+    "b096fce6-238c-4f01-8cb9-1ef2fe6e47a0";
+
+  const FEDERATION_ID =
+    "52cfa65e-9782-4a81-ab35-e2f981fcb7a9";
+
+  const API =
+    "https://api.foys.io/competition/public-api/v1/matches";
+
+
+  function vandaag() {
+
+    const delen =
+      new Intl.DateTimeFormat(
+        "en-CA",
+        {
+          timeZone: "Europe/Amsterdam",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }
+      ).formatToParts(new Date());
+
+    const datum = {};
+
+    delen.forEach(function (deel) {
+      datum[deel.type] = deel.value;
+    });
+
+    return (
+      datum.year +
+      "-" +
+      datum.month +
+      "-" +
+      datum.day
+    );
+  }
+
+
+  function schoon(tekst) {
+
+    return (tekst || "")
+      .replace(/\*+/g, "")
+      .trim();
+  }
+
+
+  function organisatie(match, thuis) {
+
+    return thuis
+      ? match.homeOrganisation
+      : match.awayOrganisation;
+  }
+
+
+  function isVikings(match, thuis) {
+
+    const org =
+      organisatie(match, thuis);
+
+    return !!(
+      org &&
+      org.id === CLUB_ID
+    );
+  }
+
+
+  function clubNaam(match, thuis) {
+
+    const org =
+      organisatie(match, thuis);
+
+    if (isVikings(match, thuis)) {
+      return "BV VIKINGS HARDENBERG";
+    }
+
+    if (org && org.name) {
+      return schoon(org.name);
+    }
+
+    return "";
+  }
+
+
+  function teamNaam(match, thuis) {
+
+    let naam =
+      schoon(
+        thuis
+          ? match.homeTeamName
+          : match.awayTeamName
+      );
+
+    const org =
+      organisatie(match, thuis);
+
+
+    /* Vikings: alleen teamnummer tonen */
+
+    if (isVikings(match, thuis)) {
+
+      naam =
+        naam.replace(
+          /^BV Vikings\s*/i,
+          ""
+        );
+
+      return naam;
+    }
+
+
+    /*
+       Tegenstander:
+       als clubnaam al in de teamnaam staat,
+       verwijderen we die uit de onderste regel.
+    */
+
+    if (org && org.name) {
+
+      const club =
+        schoon(org.name);
+
+      if (
+        naam
+          .toLowerCase()
+          .startsWith(
+            club.toLowerCase()
+          )
+      ) {
+
+        naam =
+          naam
+            .substring(club.length)
+            .trim();
+      }
+    }
+
+    return naam;
+  }
+
+
+  function teamVak(match, thuis) {
+
+    const positie =
+      thuis
+        ? "vk-home"
+        : "vk-away";
+
+    const vikings =
+      isVikings(match, thuis)
+        ? " vk-vikings"
+        : "";
+
+    return (
+      '<div class="vk-team ' +
+      positie +
+      vikings +
+      '">' +
+
+        '<div class="vk-org">' +
+          clubNaam(match, thuis) +
+        '</div>' +
+
+        '<div class="vk-team-name">' +
+          teamNaam(match, thuis) +
+        '</div>' +
+
+      '</div>'
+    );
+  }
+
+
+  function wedstrijdRegel(match) {
+
+    return (
+      '<div class="vk-match">' +
+
+        teamVak(match, true) +
+
+        '<div class="vk-score">' +
+
+          '<span class="vk-home-score">' +
+            match.homeScore +
+          '</span>' +
+
+          '<span class="vk-dash">-</span>' +
+
+          '<span class="vk-away-score">' +
+            match.awayScore +
+          '</span>' +
+
+        '</div>' +
+
+        teamVak(match, false) +
+
+      '</div>'
+    );
+  }
+
+
+  async function laadUitslagen() {
+
+    const resultaten =
+      document.getElementById(
+        "vk-results"
+      );
+
+    try {
+
+      const parameters =
+        new URLSearchParams();
+
+      parameters.set(
+        "endDate",
+        vandaag()
+      );
+
+      parameters.set(
+        "organisationId",
+        CLUB_ID
+      );
+
+      parameters.set(
+        "skipCount",
+        "0"
+      );
+
+      parameters.set(
+        "maxResultCount",
+        "30"
+      );
+
+      parameters.set(
+        "sorting",
+        "date desc, startTime desc"
+      );
+
+
+      const url =
+        API +
+        "?" +
+        parameters.toString();
+
+
+      const response =
+        await fetch(
+          url,
+          {
+            cache: "no-store",
+
+            headers: {
+              "X-Federationid":
+                FEDERATION_ID
+            }
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "HTTP " +
+          response.status
+        );
+      }
+
+
+      const data =
+        await response.json();
+
+
+      const wedstrijden =
+        (data.items || [])
+
+          .filter(function (match) {
+
+            return (
+              match.status === "Final" &&
+              (
+                isVikings(match, true) ||
+                isVikings(match, false)
+              )
+            );
+          })
+
+          .slice(0, 5);
+
+
+      if (wedstrijden.length === 0) {
+
+        resultaten.innerHTML =
+          '<div class="vk-message">' +
+          'Geen recente uitslagen beschikbaar' +
+          '</div>';
+
+        return;
+      }
+
+
+      resultaten.innerHTML =
+        wedstrijden
+          .map(wedstrijdRegel)
+          .join("");
+
+
+      const tijd =
+        new Date()
+          .toLocaleTimeString(
+            "nl-NL",
+            {
+              timeZone:
+                "Europe/Amsterdam",
+
+              hour:
+                "2-digit",
+
+              minute:
+                "2-digit"
+            }
+          );
+
+
+      const bijgewerkt =
+        document.getElementById(
+          "vk-updated"
+        );
+
+
+      if (bijgewerkt) {
+
+        bijgewerkt.textContent =
+          "Automatisch bijgewerkt om " +
+          tijd;
+      }
+
+
+    } catch (fout) {
+
+      console.error(
+        "FOYS fout:",
+        fout
+      );
+
+      resultaten.innerHTML =
+        '<div class="vk-message">' +
+        'Uitslagen konden niet worden geladen' +
+        '</div>';
+    }
+  }
+
+
+  /* Direct laden */
+
+  laadUitslagen();
+
+
+  /* Iedere 5 minuten verversen */
+
+  setInterval(
+    laadUitslagen,
+    300000
+  );
+
+})();
+</script>
