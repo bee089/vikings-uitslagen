@@ -2,7 +2,6 @@
 <html lang="nl">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -10,10 +9,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>
-    Vikings Hardenberg - Laatste uitslagen
-</title>
-
+<title>Vikings Hardenberg - Laatste uitslagen</title>
 
 <style>
 
@@ -27,7 +23,6 @@
 
 html,
 body {
-
     margin: 0;
     padding: 0;
 
@@ -38,7 +33,6 @@ body {
 }
 
 body {
-
     background: #071d3d;
 
     font-family:
@@ -49,7 +43,7 @@ body {
 
 
 /* =========================================================
-   VOLLEDIG 16:9 SCHERM
+   VOLLEDIG SCHERM
    ========================================================= */
 
 #vikings-screen {
@@ -152,7 +146,8 @@ body {
 
     color: #ffffff;
 
-    text-align: right;
+    text-align:
+        right;
 
     font-size:
         2.2vh;
@@ -513,7 +508,7 @@ body {
 
 
 /* =========================================================
-   MELDINGEN
+   MELDING
    ========================================================= */
 
 .vk-message {
@@ -544,8 +539,7 @@ body {
    SMALLERE SCHERMEN
    ========================================================= */
 
-@media
-(max-aspect-ratio: 16/9) {
+@media (max-aspect-ratio: 16/9) {
 
     #vk-results {
 
@@ -598,7 +592,6 @@ body {
         <div class="vk-name">
 
             VIKINGS<br>
-
             HARDENBERG
 
         </div>
@@ -645,9 +638,7 @@ body {
         </span>
 
 
-        <span id="vk-updated">
-
-        </span>
+        <span id="vk-updated"></span>
 
 
     </footer>
@@ -680,11 +671,11 @@ body {
 
 
     /*
-       FOYS iedere 60 minuten opnieuw controleren
+       Iedere 15 minuten opnieuw controleren.
     */
 
     const UPDATE_INTERVAL =
-        60 * 60 * 1000;
+        15 * 60 * 1000;
 
 
 
@@ -788,7 +779,7 @@ body {
 
 
     /* =====================================================
-       ORGANISATIE
+       ORGANISATIE OPHALEN
        ===================================================== */
 
 
@@ -958,13 +949,13 @@ body {
 
 
         /*
-           Vikings:
+           Bij Vikings:
 
-           BV Vikings M16-1
+           BV Vikings M18-1
 
            wordt:
 
-           M16-1
+           M18-1
         */
 
 
@@ -999,14 +990,12 @@ body {
 
 
         /*
-           Tegenstanders:
+           Bij tegenstanders verwijderen we
+           de clubnaam uit de teamnaam als
+           deze daar al in voorkomt.
 
-           Als de clubnaam al aan het begin
-           van de teamnaam staat, halen we
-           die weg.
-
-           De clubnaam wordt namelijk
-           afzonderlijk erboven weergegeven.
+           De clubnaam staat namelijk al
+           op de regel erboven.
         */
 
 
@@ -1067,7 +1056,7 @@ body {
 
 
     /* =====================================================
-       TEAMVAK MAKEN
+       TEAMVAK
        ===================================================== */
 
 
@@ -1150,7 +1139,7 @@ body {
 
 
     /* =====================================================
-       WEDSTRIJDREGEL MAKEN
+       WEDSTRIJDREGEL
        ===================================================== */
 
 
@@ -1220,7 +1209,7 @@ body {
 
 
     /* =====================================================
-       DATUM + AANVANGSTIJD
+       WEDSTRIJDMOMENT
        ===================================================== */
 
 
@@ -1244,11 +1233,34 @@ body {
 
 
         /*
-           FOYS levert datum en starttijd
-           afzonderlijk.
+           FOYS geeft de datum bijvoorbeeld als:
 
-           Voor de sortering combineren
-           we deze twee waarden.
+           2026-09-12T00:00:00Z
+
+           We gebruiken alleen het datumdeel.
+        */
+
+
+        const datum =
+
+            String(
+
+                match.date
+
+            )
+
+            .substring(
+
+                0,
+
+                10
+
+            );
+
+
+        /*
+           De starttijd wordt apart door
+           FOYS aangeleverd.
         */
 
 
@@ -1256,23 +1268,25 @@ body {
 
             match.startTime ||
 
-            "00:00";
+            "00:00:00";
 
 
-        const datumTekst =
+        /*
+           Datum en tijd combineren.
 
-            match.date +
-
-            "T" +
-
-            tijd;
+           Voor de volgorde is dit voldoende.
+        */
 
 
         const moment =
 
             new Date(
 
-                datumTekst
+                datum +
+
+                "T" +
+
+                tijd
 
             );
 
@@ -1297,7 +1311,63 @@ body {
 
 
     /* =====================================================
-       FOYS RESULTATEN OPHALEN
+       CONTROLEREN OF EEN SCORE AANWEZIG IS
+       ===================================================== */
+
+
+    function heeftScore(
+
+        match
+
+    ) {
+
+
+        /*
+           Dit is bewust NIET gekoppeld aan:
+
+           status === "Final"
+
+           We hebben vastgesteld dat FOYS
+           bijvoorbeeld een wedstrijd al als:
+
+           26 - 27
+
+           terug kan geven terwijl status nog:
+
+           Planned
+
+           is.
+
+           Zodra beide scores aanwezig zijn,
+           beschouwen we de wedstrijd daarom
+           als gespeeld.
+        */
+
+
+        return (
+
+            match.homeScore !== null
+
+            &&
+
+            match.homeScore !== undefined
+
+            &&
+
+            match.awayScore !== null
+
+            &&
+
+            match.awayScore !== undefined
+
+        );
+
+    }
+
+
+
+    /* =====================================================
+       FOYS OPHALEN
        ===================================================== */
 
 
@@ -1323,8 +1393,7 @@ body {
 
 
             /*
-               Alleen wedstrijden tot en
-               met vandaag opvragen.
+               Wedstrijden tot en met vandaag.
             */
 
 
@@ -1336,6 +1405,12 @@ body {
 
             );
 
+
+
+            /*
+               Alleen wedstrijden waarbij
+               BV Vikings betrokken is.
+            */
 
 
             parameters.set(
@@ -1359,11 +1434,10 @@ body {
 
 
             /*
-               Ruim voldoende wedstrijden
-               ophalen.
-
-               We bepalen daarna zelf de
-               vijf meest recente.
+               We halen maximaal 100 wedstrijden
+               op en bepalen vervolgens zelf
+               welke vijf uitslagen het meest
+               recent zijn.
             */
 
 
@@ -1388,13 +1462,12 @@ body {
 
 
             /*
-               Iedere aanvraag krijgt een
-               unieke waarde.
+               Unieke parameter per aanvraag.
 
-               Hierdoor kan een browser of
-               signage-player niet zomaar
-               een oude API-aanvraag uit
-               zijn cache gebruiken.
+               Hierdoor voorkomen we zoveel
+               mogelijk dat browser, proxy of
+               signage-player een oude response
+               uit cache gebruikt.
             */
 
 
@@ -1427,19 +1500,16 @@ body {
                     {
 
                         method:
-
                             "GET",
 
 
                         cache:
-
                             "no-store",
 
 
                         headers: {
 
                             "X-Federationid":
-
                                 FEDERATION_ID
 
                         }
@@ -1476,7 +1546,7 @@ body {
 
 
             /* =================================================
-               FILTEREN
+               LAATSTE VIJF UITSLAGEN BEPALEN
                ================================================= */
 
 
@@ -1491,39 +1561,18 @@ body {
                 )
 
 
+                /* ---------------------------------------------
+                   Alleen Vikings-wedstrijden met score
+                   --------------------------------------------- */
+
+
                 .filter(
 
-                    function (match) {
+                    function (
 
+                        match
 
-                        /*
-                           Alleen definitieve
-                           uitslagen.
-                        */
-
-
-                        const isFinal =
-
-                            String(
-
-                                match.status
-
-                            )
-
-                            .toLowerCase()
-
-                            .trim()
-
-                            ===
-
-                            "final";
-
-
-
-                        /*
-                           Controle dat Vikings
-                           thuis of uit speelt.
-                        */
+                    ) {
 
 
                         const isVikingsWedstrijd =
@@ -1547,43 +1596,17 @@ body {
                             );
 
 
-
-                        /*
-                           Er moet daadwerkelijk
-                           een eindstand aanwezig
-                           zijn.
-                        */
-
-
-                        const heeftScore =
-
-                            match.homeScore !== null
-
-                            &&
-
-                            match.homeScore !== undefined
-
-                            &&
-
-                            match.awayScore !== null
-
-                            &&
-
-                            match.awayScore !== undefined;
-
-
-
                         return (
-
-                            isFinal
-
-                            &&
 
                             isVikingsWedstrijd
 
                             &&
 
-                            heeftScore
+                            heeftScore(
+
+                                match
+
+                            )
 
                         );
 
@@ -1593,9 +1616,9 @@ body {
 
 
 
-                /* =============================================
-                   NIEUWSTE WEDSTRIJD EERST
-                   ============================================= */
+                /* ---------------------------------------------
+                   Nieuwste eerst
+                   --------------------------------------------- */
 
 
                 .sort(
@@ -1633,9 +1656,9 @@ body {
 
 
 
-                /* =============================================
-                   ALLEEN DE LAATSTE VIJF
-                   ============================================= */
+                /* ---------------------------------------------
+                   Alleen laatste vijf
+                   --------------------------------------------- */
 
 
                 .slice(
@@ -1678,7 +1701,7 @@ body {
 
 
             /* =================================================
-               UITSLAGEN TONEN
+               RESULTATEN TONEN
                ================================================= */
 
 
@@ -1754,24 +1777,33 @@ body {
 
                     tijd +
 
-                    " · ieder uur bijgewerkt";
+                    " · iedere 15 minuten";
 
             }
 
 
 
-            /*
-               Alleen zichtbaar in de
-               browserconsole.
-
-               Handig bij eventuele
-               foutopsporing.
-            */
+            /* =================================================
+               DEBUG-INFORMATIE
+               ================================================= */
 
 
             console.log(
 
-                "Laatste vijf FOYS uitslagen:",
+                "FOYS totaal ontvangen:",
+
+                data.items
+
+                    ? data.items.length
+
+                    : 0
+
+            );
+
+
+            console.log(
+
+                "Laatste vijf Vikings uitslagen:",
 
                 wedstrijden
 
@@ -1810,7 +1842,7 @@ body {
 
 
     /* =====================================================
-       DIRECT CONTROLEREN BIJ OPENEN
+       DIRECT BIJ OPENEN CONTROLEREN
        ===================================================== */
 
 
@@ -1819,7 +1851,7 @@ body {
 
 
     /* =====================================================
-       DAARNA IEDER UUR CONTROLEREN
+       IEDERE 15 MINUTEN CONTROLEREN
        ===================================================== */
 
 
@@ -1834,7 +1866,7 @@ body {
 
 
     /* =====================================================
-       EXTRA CONTROLE BIJ TERUGKEREN NAAR PAGINA
+       OOK CONTROLEREN ALS PAGINA WEER ACTIEF WORDT
        ===================================================== */
 
 
