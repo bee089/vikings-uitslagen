@@ -3,19 +3,11 @@
 
 <head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Vikings Hardenberg - Laatste uitslagen</title>
 
 <style>
-
-/* =========================================================
-   BASIS
-   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -25,20 +17,14 @@ html,
 body {
     margin: 0;
     padding: 0;
-
     width: 100%;
     height: 100%;
-
     overflow: hidden;
 }
 
 body {
     background: #071d3d;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -47,28 +33,20 @@ body {
    ========================================================= */
 
 #vikings-screen {
-
     position: fixed;
-
     inset: 0;
 
     width: 100vw;
     height: 100vh;
 
-    padding:
-        5vh
-        6vw
-        3vh
-        6vw;
+    padding: 5vh 6vw 3vh 6vw;
 
     background:
-
         radial-gradient(
             circle at 80% 50%,
             rgba(0,151,215,0.18),
             transparent 38%
         ),
-
         linear-gradient(
             115deg,
             #061a38 0%,
@@ -79,7 +57,6 @@ body {
     color: #ffffff;
 
     display: grid;
-
     grid-template-rows:
         20vh
         0.7vh
@@ -95,71 +72,40 @@ body {
    ========================================================= */
 
 .vk-header {
-
     display: flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-
 .vk-heading {
-
     font-weight: 900;
-
     line-height: 0.9;
 }
 
-
 .vk-last {
-
     color: #ffffff;
-
     font-size: 6.5vh;
-
-    letter-spacing:
-        0.04em;
+    letter-spacing: 0.04em;
 }
-
 
 .vk-results-title {
-
     color: #ffd21c;
-
     font-size: 6.5vh;
-
-    letter-spacing:
-        0.04em;
-
-    margin-top:
-        2.5vh;
+    letter-spacing: 0.04em;
+    margin-top: 2.5vh;
 }
 
-
 .vk-name {
-
-    margin-top:
-        0.5vh;
+    margin-top: 0.5vh;
 
     color: #ffffff;
+    text-align: right;
 
-    text-align:
-        right;
+    font-size: 2.2vh;
+    line-height: 1.35;
 
-    font-size:
-        2.2vh;
-
-    line-height:
-        1.35;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        0.08em;
+    font-weight: 900;
+    letter-spacing: 0.08em;
 }
 
 
@@ -168,14 +114,9 @@ body {
    ========================================================= */
 
 .vk-line {
-
     width: 100%;
-
-    height:
-        0.7vh;
-
-    background:
-        #ffd21c;
+    height: 0.7vh;
+    background: #ffd21c;
 }
 
 
@@ -184,44 +125,29 @@ body {
    ========================================================= */
 
 .vk-center {
-
     min-height: 0;
 
     display: flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
+    justify-content: center;
+    align-items: center;
 }
 
 
 /* =========================================================
-   RESULTATENBLOK
+   RESULTATEN
    ========================================================= */
 
 #vk-results {
+    width: 74vw;
+    max-width: 1450px;
 
-    width:
-        74vw;
-
-    max-width:
-        1450px;
-
-    height:
-        48vh;
-
-    max-height:
-        560px;
+    height: 48vh;
+    max-height: 560px;
 
     display: grid;
+    grid-template-rows: repeat(5, 1fr);
 
-    grid-template-rows:
-        repeat(5, 1fr);
-
-    gap:
-        1vh;
+    gap: 1vh;
 }
 
 
@@ -230,9 +156,7 @@ body {
    ========================================================= */
 
 .vk-match {
-
     width: 100%;
-
     min-width: 0;
     min-height: 0;
 
@@ -243,152 +167,94 @@ body {
         15vw
         minmax(0, 1fr);
 
-    column-gap:
-        2vw;
+    column-gap: 2vw;
 
-    align-items:
-        center;
+    align-items: center;
 
-    padding:
-        0
-        2vw;
+    padding: 0 2vw;
 
-    background:
-        rgba(3,24,55,0.58);
+    background: rgba(3,24,55,0.58);
 
     border:
         1px solid
         rgba(255,255,255,0.08);
 
-    border-radius:
-        1vh;
+    border-radius: 1vh;
 }
 
 
 /* =========================================================
-   TEAMVAK
+   TEAM
    ========================================================= */
 
 .vk-team {
-
     min-width: 0;
 
     display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-
-    overflow:
-        hidden;
+    overflow: hidden;
 }
-
 
 .vk-home {
-
-    align-items:
-        flex-end;
-
-    text-align:
-        right;
+    align-items: flex-end;
+    text-align: right;
 }
-
 
 .vk-away {
-
-    align-items:
-        flex-start;
-
-    text-align:
-        left;
+    align-items: flex-start;
+    text-align: left;
 }
 
 
-/* =========================================================
-   CLUBNAAM
-   ========================================================= */
+/* CLUBNAAM */
 
 .vk-org {
-
     width: 100%;
 
-    margin-bottom:
-        0.6vh;
+    margin-bottom: 0.6vh;
 
-    color:
-        rgba(255,255,255,0.62);
+    color: rgba(255,255,255,0.62);
 
-    font-size:
-        1.3vh;
+    font-size: 1.3vh;
+    line-height: 1;
 
-    line-height:
-        1;
+    font-weight: 600;
 
-    font-weight:
-        600;
-
-    white-space:
-        nowrap;
-
-    overflow:
-        hidden;
-
-    text-overflow:
-        ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
-/* =========================================================
-   TEAMNAAM
-   ========================================================= */
+/* TEAMNAAM */
 
 .vk-team-name {
-
     width: 100%;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
-    font-size:
-        2.5vh;
+    font-size: 2.5vh;
+    line-height: 1;
 
-    line-height:
-        1;
+    font-weight: 800;
 
-    font-weight:
-        800;
-
-    white-space:
-        nowrap;
-
-    overflow:
-        hidden;
-
-    text-overflow:
-        ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
-/* =========================================================
-   VIKINGS IN GEEL
-   ========================================================= */
+/* VIKINGS */
 
 .vk-vikings .vk-org {
-
-    color:
-        rgba(255,210,28,0.78);
+    color: rgba(255,210,28,0.78);
 }
 
-
 .vk-vikings .vk-team-name {
-
-    color:
-        #ffd21c;
-
-    font-weight:
-        900;
+    color: #ffd21c;
+    font-weight: 900;
 }
 
 
@@ -397,7 +263,6 @@ body {
    ========================================================= */
 
 .vk-score {
-
     width: 100%;
 
     display: grid;
@@ -407,72 +272,47 @@ body {
         auto
         1fr;
 
-    align-items:
-        center;
+    align-items: center;
 
-    padding:
-        1.4vh
-        0.8vw;
+    padding: 1.4vh 0.8vw;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(0,80,180,0.90),
             rgba(0,125,215,0.82)
         );
 
-    border-radius:
-        0.8vh;
+    border-radius: 0.8vh;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
-    font-size:
-        3.4vh;
+    font-size: 3.4vh;
+    line-height: 1;
 
-    line-height:
-        1;
+    font-weight: 900;
 
-    font-weight:
-        900;
-
-    white-space:
-        nowrap;
+    white-space: nowrap;
 
     box-shadow:
-        0
-        0.4vh
-        1.5vh
+        0 0.4vh 1.5vh
         rgba(0,0,0,0.15);
 }
 
-
 .vk-home-score {
-
-    text-align:
-        right;
+    text-align: right;
 }
-
 
 .vk-away-score {
-
-    text-align:
-        left;
+    text-align: left;
 }
 
-
 .vk-dash {
+    padding: 0 0.8vw;
 
-    padding:
-        0
-        0.8vw;
+    color: #ffd21c;
 
-    color:
-        #ffd21c;
-
-    font-size:
-        2.8vh;
+    font-size: 2.8vh;
 }
 
 
@@ -481,29 +321,18 @@ body {
    ========================================================= */
 
 .vk-footer {
-
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    color: rgba(255,255,255,0.82);
 
-    align-items:
-        center;
+    font-size: 1.35vh;
+    line-height: 1;
 
-    color:
-        rgba(255,255,255,0.82);
+    letter-spacing: 0.03em;
 
-    font-size:
-        1.35vh;
-
-    line-height:
-        1;
-
-    letter-spacing:
-        0.03em;
-
-    white-space:
-        nowrap;
+    white-space: nowrap;
 }
 
 
@@ -512,26 +341,16 @@ body {
    ========================================================= */
 
 .vk-message {
-
-    grid-row:
-        1 / 6;
+    grid-row: 1 / 6;
 
     display: flex;
+    justify-content: center;
+    align-items: center;
 
-    justify-content:
-        center;
+    color: #ffffff;
 
-    align-items:
-        center;
-
-    color:
-        #ffffff;
-
-    font-size:
-        2.6vh;
-
-    font-weight:
-        700;
+    font-size: 2.6vh;
+    font-weight: 700;
 }
 
 
@@ -542,39 +361,28 @@ body {
 @media (max-aspect-ratio: 16/9) {
 
     #vk-results {
-
-        width:
-            78vw;
+        width: 78vw;
     }
 
     .vk-team-name {
-
-        font-size:
-            2.3vh;
+        font-size: 2.3vh;
     }
 
     .vk-score {
-
-        font-size:
-            3.1vh;
+        font-size: 3.1vh;
     }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
 <div id="vikings-screen">
 
 
-    <!-- HEADER -->
-
     <header class="vk-header">
-
 
         <div class="vk-heading">
 
@@ -590,62 +398,41 @@ body {
 
 
         <div class="vk-name">
-
             VIKINGS<br>
             HARDENBERG
-
         </div>
-
 
     </header>
 
 
-    <!-- GELE LIJN -->
-
     <div class="vk-line"></div>
 
 
-    <!-- RESULTATEN -->
-
     <main class="vk-center">
-
 
         <div id="vk-results">
 
-
             <div class="vk-message">
-
                 Uitslagen laden...
-
             </div>
 
-
         </div>
-
 
     </main>
 
 
-    <!-- FOOTER -->
-
     <footer class="vk-footer">
 
-
         <span>
-
             BV VIKINGS HARDENBERG
-
         </span>
 
-
         <span id="vk-updated"></span>
-
 
     </footer>
 
 
 </div>
-
 
 
 <script>
@@ -657,21 +444,18 @@ body {
        INSTELLINGEN
        ===================================================== */
 
-
     const CLUB_ID =
         "b096fce6-238c-4f01-8cb9-1ef2fe6e47a0";
 
-
     const FEDERATION_ID =
         "52cfa65e-9782-4a81-ab35-e2f981fcb7a9";
-
 
     const API =
         "https://api.foys.io/competition/public-api/v1/matches";
 
 
     /*
-       Iedere 15 minuten opnieuw controleren.
+       Iedere 15 minuten controleren.
     */
 
     const UPDATE_INTERVAL =
@@ -683,69 +467,39 @@ body {
        DATUM VAN VANDAAG
        ===================================================== */
 
-
     function vandaag() {
 
-
         const delen =
-
             new Intl.DateTimeFormat(
-
                 "en-CA",
-
                 {
-
-                    timeZone:
-                        "Europe/Amsterdam",
-
-                    year:
-                        "numeric",
-
-                    month:
-                        "2-digit",
-
-                    day:
-                        "2-digit"
+                    timeZone: "Europe/Amsterdam",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
                 }
-
             )
-
-            .formatToParts(
-
-                new Date()
-
-            );
+            .formatToParts(new Date());
 
 
         const datum = {};
 
 
-        delen.forEach(
+        delen.forEach(function (deel) {
 
-            function (deel) {
+            datum[deel.type] =
+                deel.value;
 
-                datum[deel.type] =
-                    deel.value;
-
-            }
-
-        );
+        });
 
 
         return (
-
             datum.year +
-
             "-" +
-
             datum.month +
-
             "-" +
-
             datum.day
-
         );
-
     }
 
 
@@ -754,50 +508,24 @@ body {
        TEKST OPSCHONEN
        ===================================================== */
 
-
     function schoon(tekst) {
 
-
-        return (
-
-            tekst || ""
-
-        )
-
-        .replace(
-
-            /\*+/g,
-
-            ""
-
-        )
-
-        .trim();
-
+        return (tekst || "")
+            .replace(/\*+/g, "")
+            .trim();
     }
 
 
 
     /* =====================================================
-       ORGANISATIE OPHALEN
+       ORGANISATIE
        ===================================================== */
 
-
-    function organisatie(
-
-        match,
-
-        thuis
-
-    ) {
-
+    function organisatie(match, thuis) {
 
         return thuis
-
             ? match.homeOrganisation
-
             : match.awayOrganisation;
-
     }
 
 
@@ -806,35 +534,19 @@ body {
        VIKINGS HERKENNEN
        ===================================================== */
 
-
-    function isVikings(
-
-        match,
-
-        thuis
-
-    ) {
-
+    function isVikings(match, thuis) {
 
         const org =
-
             organisatie(
-
                 match,
-
                 thuis
-
             );
 
 
         return !!(
-
             org &&
-
             org.id === CLUB_ID
-
         );
-
     }
 
 
@@ -843,69 +555,38 @@ body {
        CLUBNAAM
        ===================================================== */
 
-
-    function clubNaam(
-
-        match,
-
-        thuis
-
-    ) {
-
+    function clubNaam(match, thuis) {
 
         const org =
-
             organisatie(
-
                 match,
-
                 thuis
-
             );
 
 
         if (
-
             isVikings(
-
                 match,
-
                 thuis
-
             )
-
         ) {
 
-
-            return (
-
-                "BV VIKINGS HARDENBERG"
-
-            );
-
+            return "BV VIKINGS HARDENBERG";
         }
 
 
         if (
-
             org &&
-
             org.name
-
         ) {
 
-
             return schoon(
-
                 org.name
-
             );
-
         }
 
 
         return "";
-
     }
 
 
@@ -914,143 +595,80 @@ body {
        TEAMNAAM
        ===================================================== */
 
-
-    function teamNaam(
-
-        match,
-
-        thuis
-
-    ) {
-
+    function teamNaam(match, thuis) {
 
         let naam =
-
             schoon(
-
                 thuis
-
                     ? match.homeTeamName
-
                     : match.awayTeamName
-
             );
 
 
         const org =
-
             organisatie(
-
                 match,
-
                 thuis
-
             );
 
 
         /*
-           Bij Vikings:
-
-           BV Vikings M18-1
-
-           wordt:
-
-           M18-1
+           Bij Vikings alleen teamnaam tonen.
         */
 
-
         if (
-
             isVikings(
-
                 match,
-
                 thuis
-
             )
-
         ) {
 
-
             naam =
-
                 naam.replace(
-
                     /^BV Vikings\s*/i,
-
                     ""
-
                 );
 
 
             return naam;
-
         }
 
 
-
         /*
-           Bij tegenstanders verwijderen we
-           de clubnaam uit de teamnaam als
-           deze daar al in voorkomt.
-
-           De clubnaam staat namelijk al
-           op de regel erboven.
+           Clubnaam bij tegenstander verwijderen
+           wanneer die ook al in de teamnaam staat.
         */
 
-
         if (
-
             org &&
-
             org.name
-
         ) {
 
-
             const club =
-
                 schoon(
-
                     org.name
-
                 );
 
 
             if (
-
                 naam
-
                     .toLowerCase()
-
                     .startsWith(
-
                         club.toLowerCase()
-
                     )
-
             ) {
 
-
                 naam =
-
                     naam
-
                         .substring(
-
                             club.length
-
                         )
-
                         .trim();
-
             }
-
         }
 
 
         return naam;
-
     }
 
 
@@ -1059,81 +677,47 @@ body {
        TEAMVAK
        ===================================================== */
 
-
-    function teamVak(
-
-        match,
-
-        thuis
-
-    ) {
-
+    function teamVak(match, thuis) {
 
         const positie =
-
             thuis
-
                 ? "vk-home"
-
                 : "vk-away";
 
 
         const vikingsClass =
-
             isVikings(
-
                 match,
-
                 thuis
-
             )
-
                 ? " vk-vikings"
-
                 : "";
 
 
         return (
 
             '<div class="vk-team ' +
-
             positie +
-
             vikingsClass +
-
             '">' +
 
-
                 '<div class="vk-org">' +
-
                     clubNaam(
-
                         match,
-
                         thuis
-
                     ) +
-
                 '</div>' +
-
 
                 '<div class="vk-team-name">' +
-
                     teamNaam(
-
                         match,
-
                         thuis
-
                     ) +
-
                 '</div>' +
-
 
             '</div>'
 
         );
-
     }
 
 
@@ -1142,13 +726,7 @@ body {
        WEDSTRIJDREGEL
        ===================================================== */
 
-
-    function wedstrijdRegel(
-
-        match
-
-    ) {
-
+    function wedstrijdRegel(match) {
 
         return (
 
@@ -1156,193 +734,103 @@ body {
 
 
                 teamVak(
-
                     match,
-
                     true
-
                 ) +
 
 
                 '<div class="vk-score">' +
 
-
                     '<span class="vk-home-score">' +
-
                         match.homeScore +
-
                     '</span>' +
-
 
                     '<span class="vk-dash">' +
-
                         '-' +
-
                     '</span>' +
-
 
                     '<span class="vk-away-score">' +
-
                         match.awayScore +
-
                     '</span>' +
-
 
                 '</div>' +
 
 
                 teamVak(
-
                     match,
-
                     false
-
                 ) +
 
 
             '</div>'
 
         );
-
     }
 
 
 
     /* =====================================================
-       WEDSTRIJDMOMENT
+       WEDSTRIJDMOMENT VOOR SORTERING
        ===================================================== */
 
+    function wedstrijdMoment(match) {
 
-    function wedstrijdMoment(
-
-        match
-
-    ) {
-
-
-        if (
-
-            !match.date
-
-        ) {
-
-
+        if (!match.date) {
             return 0;
-
         }
 
 
         /*
-           FOYS geeft de datum bijvoorbeeld als:
+           FOYS geeft bijvoorbeeld:
 
+           date:
            2026-09-12T00:00:00Z
 
-           We gebruiken alleen het datumdeel.
+           startTime:
+           17:00:00
+
+           Voor de sortering gebruiken we
+           alleen het datumdeel plus starttijd.
         */
 
 
         const datum =
-
-            String(
-
-                match.date
-
-            )
-
-            .substring(
-
-                0,
-
-                10
-
-            );
-
-
-        /*
-           De starttijd wordt apart door
-           FOYS aangeleverd.
-        */
+            String(match.date)
+                .substring(
+                    0,
+                    10
+                );
 
 
         const tijd =
-
             match.startTime ||
-
             "00:00:00";
 
 
-        /*
-           Datum en tijd combineren.
-
-           Voor de volgorde is dit voldoende.
-        */
-
-
         const moment =
-
             new Date(
-
                 datum +
-
                 "T" +
-
                 tijd
-
             );
 
 
         const waarde =
-
             moment.getTime();
 
 
-        return isNaN(
-
-            waarde
-
-        )
-
+        return isNaN(waarde)
             ? 0
-
             : waarde;
-
     }
 
 
 
     /* =====================================================
-       CONTROLEREN OF EEN SCORE AANWEZIG IS
+       CONTROLEREN OF SCORE COMPLEET IS
        ===================================================== */
 
-
-    function heeftScore(
-
-        match
-
-    ) {
-
-
-        /*
-           Dit is bewust NIET gekoppeld aan:
-
-           status === "Final"
-
-           We hebben vastgesteld dat FOYS
-           bijvoorbeeld een wedstrijd al als:
-
-           26 - 27
-
-           terug kan geven terwijl status nog:
-
-           Planned
-
-           is.
-
-           Zodra beide scores aanwezig zijn,
-           beschouwen we de wedstrijd daarom
-           als gespeeld.
-        */
-
+    function heeftScore(match) {
 
         return (
 
@@ -1361,7 +849,49 @@ body {
             match.awayScore !== undefined
 
         );
+    }
 
+
+
+    /* =====================================================
+       CONTROLEREN OF WEDSTRIJD DEFINITIEF IS
+       ===================================================== */
+
+    function isDefinitief(match) {
+
+        /*
+           BELANGRIJK:
+
+           We gebruiken een score uitsluitend
+           wanneer FOYS de wedstrijd zelf als
+           "Final" markeert.
+
+           Een wedstrijd met:
+
+           status = Planned
+
+           en bijvoorbeeld:
+
+           26 - 29
+
+           kan een tussenstand zijn.
+
+           Die mag dus NIET als uitslag
+           worden weergegeven.
+        */
+
+
+        const status =
+            String(
+                match.status || ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+        return (
+            status === "final"
+        );
     }
 
 
@@ -1370,16 +900,11 @@ body {
        FOYS OPHALEN
        ===================================================== */
 
-
     async function laadUitslagen() {
 
-
         const resultaten =
-
             document.getElementById(
-
                 "vk-results"
-
             );
 
 
@@ -1387,286 +912,212 @@ body {
 
 
             const parameters =
-
                 new URLSearchParams();
 
 
 
             /*
-               Wedstrijden tot en met vandaag.
+               Alles tot en met vandaag.
             */
 
-
             parameters.set(
-
                 "endDate",
-
                 vandaag()
-
             );
 
 
 
             /*
-               Alleen wedstrijden waarbij
-               BV Vikings betrokken is.
+               Alleen wedstrijden van Vikings.
             */
 
-
             parameters.set(
-
                 "organisationId",
-
                 CLUB_ID
-
             );
 
 
 
             parameters.set(
-
                 "skipCount",
-
                 "0"
-
             );
 
 
 
             /*
-               We halen maximaal 100 wedstrijden
-               op en bepalen vervolgens zelf
-               welke vijf uitslagen het meest
-               recent zijn.
+               Voldoende resultaten ophalen
+               zodat JavaScript daarna zelf
+               de laatste vijf kan bepalen.
             */
 
-
             parameters.set(
-
                 "maxResultCount",
-
                 "100"
-
             );
 
 
 
             parameters.set(
-
                 "sorting",
-
                 "date desc, startTime desc"
-
             );
 
 
 
             /*
-               Unieke parameter per aanvraag.
+               Cache omzeilen.
 
-               Hierdoor voorkomen we zoveel
-               mogelijk dat browser, proxy of
-               signage-player een oude response
-               uit cache gebruikt.
+               Iedere API-aanvraag krijgt
+               een unieke waarde.
             */
 
-
             parameters.set(
-
                 "_refresh",
-
                 Date.now().toString()
-
             );
 
 
 
             const url =
-
                 API +
-
                 "?" +
-
                 parameters.toString();
 
 
 
             const response =
-
                 await fetch(
-
                     url,
-
                     {
+                        method: "GET",
 
-                        method:
-                            "GET",
-
-
-                        cache:
-                            "no-store",
-
+                        cache: "no-store",
 
                         headers: {
 
                             "X-Federationid":
                                 FEDERATION_ID
-
                         }
-
                     }
-
                 );
 
 
 
-            if (
-
-                !response.ok
-
-            ) {
-
+            if (!response.ok) {
 
                 throw new Error(
-
                     "HTTP " +
-
                     response.status
-
                 );
-
             }
 
 
 
             const data =
-
                 await response.json();
 
 
 
             /* =================================================
-               LAATSTE VIJF UITSLAGEN BEPALEN
+               ALLEEN DEFINITIEVE UITSLAGEN
                ================================================= */
-
 
             const wedstrijden =
 
-                (
-
-                    data.items ||
-
-                    []
-
-                )
+                (data.items || [])
 
 
-                /* ---------------------------------------------
-                   Alleen Vikings-wedstrijden met score
-                   --------------------------------------------- */
+                .filter(function (match) {
 
 
-                .filter(
+                    /*
+                       Vikings moet thuis of uit
+                       bij de wedstrijd betrokken zijn.
+                    */
 
-                    function (
+                    const isVikingsWedstrijd =
 
-                        match
+                        isVikings(
+                            match,
+                            true
+                        )
 
-                    ) {
+                        ||
 
-
-                        const isVikingsWedstrijd =
-
-                            isVikings(
-
-                                match,
-
-                                true
-
-                            )
-
-                            ||
-
-                            isVikings(
-
-                                match,
-
-                                false
-
-                            );
-
-
-                        return (
-
-                            isVikingsWedstrijd
-
-                            &&
-
-                            heeftScore(
-
-                                match
-
-                            )
-
+                        isVikings(
+                            match,
+                            false
                         );
 
-                    }
 
-                )
+                    /*
+                       Wedstrijd moet door FOYS
+                       definitief zijn afgesloten.
+                    */
 
-
-
-                /* ---------------------------------------------
-                   Nieuwste eerst
-                   --------------------------------------------- */
-
-
-                .sort(
-
-                    function (
-
-                        a,
-
-                        b
-
-                    ) {
-
-
-                        return (
-
-                            wedstrijdMoment(
-
-                                b
-
-                            )
-
-                            -
-
-                            wedstrijdMoment(
-
-                                a
-
-                            )
-
+                    const definitief =
+                        isDefinitief(
+                            match
                         );
 
-                    }
 
-                )
+                    /*
+                       Beide eindstanden moeten
+                       aanwezig zijn.
+                    */
+
+                    const scoreAanwezig =
+                        heeftScore(
+                            match
+                        );
+
+
+                    return (
+
+                        isVikingsWedstrijd
+
+                        &&
+
+                        definitief
+
+                        &&
+
+                        scoreAanwezig
+
+                    );
+
+                })
 
 
 
-                /* ---------------------------------------------
-                   Alleen laatste vijf
-                   --------------------------------------------- */
+                /* =============================================
+                   NIEUWSTE WEDSTRIJD EERST
+                   ============================================= */
 
+                .sort(function (a, b) {
+
+                    return (
+
+                        wedstrijdMoment(b)
+
+                        -
+
+                        wedstrijdMoment(a)
+
+                    );
+
+                })
+
+
+
+                /* =============================================
+                   LAATSTE VIJF
+                   ============================================= */
 
                 .slice(
-
                     0,
-
                     5
-
                 );
 
 
@@ -1675,46 +1126,35 @@ body {
                GEEN UITSLAGEN
                ================================================= */
 
-
             if (
-
                 wedstrijden.length ===
-
                 0
-
             ) {
-
 
                 resultaten.innerHTML =
 
                     '<div class="vk-message">' +
-
                     'Geen recente uitslagen beschikbaar' +
-
                     '</div>';
 
 
-                return;
+                updateTijd();
 
+                return;
             }
 
 
 
             /* =================================================
-               RESULTATEN TONEN
+               UITSLAGEN TONEN
                ================================================= */
-
 
             resultaten.innerHTML =
 
                 wedstrijden
-
                     .map(
-
                         wedstrijdRegel
-
                     )
-
                     .join("");
 
 
@@ -1723,175 +1163,142 @@ body {
                UPDATE-TIJD
                ================================================= */
 
-
-            const tijd =
-
-                new Date()
-
-                    .toLocaleTimeString(
-
-                        "nl-NL",
-
-                        {
-
-                            timeZone:
-
-                                "Europe/Amsterdam",
-
-
-                            hour:
-
-                                "2-digit",
-
-
-                            minute:
-
-                                "2-digit"
-
-                        }
-
-                    );
-
-
-
-            const bijgewerkt =
-
-                document.getElementById(
-
-                    "vk-updated"
-
-                );
-
-
-
-            if (
-
-                bijgewerkt
-
-            ) {
-
-
-                bijgewerkt.textContent =
-
-                    "Laatste controle: " +
-
-                    tijd +
-
-                    " · iedere 15 minuten";
-
-            }
+            updateTijd();
 
 
 
             /* =================================================
-               DEBUG-INFORMATIE
+               DEBUG
                ================================================= */
 
-
             console.log(
-
-                "FOYS totaal ontvangen:",
-
-                data.items
-
-                    ? data.items.length
-
-                    : 0
-
+                "FOYS controle uitgevoerd:",
+                new Date()
             );
 
 
             console.log(
-
-                "Laatste vijf Vikings uitslagen:",
-
+                "Definitieve laatste vijf:",
                 wedstrijden
-
             );
 
 
-
-        } catch (
-
-            fout
-
-        ) {
+        } catch (fout) {
 
 
             console.error(
-
                 "FOYS fout:",
-
                 fout
-
             );
 
 
-            resultaten.innerHTML =
+            /*
+               Bij een fout verwijderen we liever
+               niet stilletjes bestaande informatie.
 
-                '<div class="vk-message">' +
+               Wanneer de pagina net geopend is en
+               nog geen resultaten bevat, tonen we
+               wel een foutmelding.
+            */
 
-                'Uitslagen konden niet worden geladen' +
 
-                '</div>';
+            if (
+                resultaten.querySelector(
+                    ".vk-message"
+                )
+            ) {
+
+                resultaten.innerHTML =
+
+                    '<div class="vk-message">' +
+                    'Uitslagen konden niet worden geladen' +
+                    '</div>';
+            }
 
         }
-
     }
 
 
 
     /* =====================================================
-       DIRECT BIJ OPENEN CONTROLEREN
+       UPDATE-TIJD
        ===================================================== */
 
+    function updateTijd() {
+
+        const tijd =
+            new Date()
+                .toLocaleTimeString(
+                    "nl-NL",
+                    {
+                        timeZone:
+                            "Europe/Amsterdam",
+
+                        hour:
+                            "2-digit",
+
+                        minute:
+                            "2-digit"
+                    }
+                );
+
+
+        const bijgewerkt =
+            document.getElementById(
+                "vk-updated"
+            );
+
+
+        if (bijgewerkt) {
+
+            bijgewerkt.textContent =
+
+                "Laatste controle: " +
+
+                tijd +
+
+                " · iedere 15 minuten";
+        }
+    }
+
+
+
+    /* =====================================================
+       DIRECT BIJ OPENEN
+       ===================================================== */
 
     laadUitslagen();
 
 
 
     /* =====================================================
-       IEDERE 15 MINUTEN CONTROLEREN
+       DAARNA IEDERE 15 MINUTEN
        ===================================================== */
 
-
     setInterval(
-
         laadUitslagen,
-
         UPDATE_INTERVAL
-
     );
 
 
 
     /* =====================================================
-       OOK CONTROLEREN ALS PAGINA WEER ACTIEF WORDT
+       EXTRA CONTROLE NA TERUGKEREN NAAR PAGINA
        ===================================================== */
 
-
     document.addEventListener(
-
         "visibilitychange",
 
         function () {
 
-
             if (
-
                 document.visibilityState ===
-
                 "visible"
-
             ) {
 
-
                 laadUitslagen();
-
             }
-
         }
-
     );
 
 
@@ -1901,5 +1308,4 @@ body {
 
 
 </body>
-
 </html>
