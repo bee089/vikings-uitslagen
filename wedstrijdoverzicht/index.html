@@ -1,37 +1,36 @@
-<!doctype html>
-<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vikings | Wedstrijden</title>
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vikings | Wedstrijdoverzicht</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#001b46;color:white;font-family:Arial,Helvetica,sans-serif}
 #screen{position:relative;width:100vw;height:100vh;overflow:hidden;background:#00265c url('./achtergrond.png') center/100% 100% no-repeat}
-/* Afdekvlak verbergt de oude posterwedstrijden; nieuwe regels worden onderaan uitgelijnd. */
-#board{position:absolute;left:10%;right:10%;top:16.1%;bottom:15.5%;background:linear-gradient(110deg,#002351 0%,#003578 60%,#03428b 100%);border-radius:1.1vw;box-shadow:0 0 1.5vw #00214a;display:flex;flex-direction:column;padding:1vh 2.2vw 1vh;gap:.6vh}
-#date{display:none}
-#matches{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:.6vh;min-height:0}
-.day-group{display:flex;flex-direction:column;gap:.5vh;min-height:0}
-.day-heading{align-self:center;background:#ffcc08;color:#061c40;padding:.35vh 3vw;font-size:clamp(17px,2.15vw,42px);font-weight:1000;text-transform:uppercase;text-align:center;transform:skew(-5deg);white-space:nowrap;margin:.15vh 0 .3vh}
-.match{display:grid;grid-template-columns:20% minmax(0,1fr) 5% minmax(0,1fr);align-items:center;height:7.6vh;min-height:0;background:linear-gradient(90deg,#003471,#0055a9);border-bottom:2px solid #ffd21c;border-radius:1vw;padding:.35vh .6vw;gap:.7vw}
-.ball{text-align:center;font-size:clamp(20px,3vw,58px)}.time{background:#ffd21c;color:#031d42;font-size:clamp(20px,2.6vw,52px);font-weight:1000;text-align:center;padding:.25vh .2vw;border-radius:40% 16% 35% 15%;font-style:italic}.team{text-align:center;min-width:0;line-height:1.1}.org{font-weight:900;font-size:clamp(13px,1.75vw,35px);overflow-wrap:anywhere}.name{font-size:clamp(12px,1.35vw,27px);margin-top:.2vh}.sep{text-align:center;color:#ffcf12;font-size:clamp(25px,3vw,58px);font-weight:900}.message{font-size:clamp(20px,3vw,52px);text-align:center}.bottom{display:flex;justify-content:center;align-items:center;min-height:2vh;font-size:clamp(12px,1vw,20px);color:#e8f1ff}.pager{position:absolute;right:2vw;bottom:1vh;color:#ffd21c}
-@media(max-aspect-ratio:1/1){#board{left:3%;right:3%;top:19%;bottom:17%}.org{font-size:2.7vw}.name{font-size:2.4vw}.time{font-size:3.4vw}}
-</style></head><body><div id="screen"><section id="board"><div id="date">PROGRAMMA LADEN...</div><div id="matches"></div><div class="bottom"><span id="period"></span><span class="pager" id="pager"></span></div></section></div>
+/* Het paneel maskeert de oude, vaste wedstrijdregels uit de poster. De actuele regels staan onderaan het paneel. */
+#board{position:absolute;left:10%;right:10%;top:26.7%;bottom:14.5%;padding:1vh 1.4vw 1.1vh;background:linear-gradient(110deg,#002351 0%,#003578 60%,#03428b 100%);border-radius:1vw;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 0 1vw #00214a}
+#matches{display:flex;flex-direction:column;justify-content:flex-end;gap:.5vh;min-height:0;width:100%}
+.day-group{display:flex;flex-direction:column;gap:.35vh;min-height:0}
+.day-heading{align-self:center;background:#ffcd08;color:#051b3d;font-size:clamp(15px,2.05vw,42px);font-weight:1000;text-transform:uppercase;padding:.24vh 2.5vw;transform:skew(-5deg);line-height:1.15;margin:.15vh 0 .25vh;white-space:nowrap}
+.match{display:grid;grid-template-columns:17% minmax(0,1fr) 4% minmax(0,1fr);align-items:center;gap:.65vw;height:7.1vh;min-height:0;background:linear-gradient(90deg,#003471,#0055a9);border-bottom:2px solid #ffd21c;border-radius:.8vw;padding:.3vh .7vw}
+.time{background:#ffd21c;color:#031d42;font-size:clamp(19px,2.55vw,53px);font-weight:1000;text-align:center;padding:.2vh .2vw;border-radius:32% 12% 30% 12%;font-style:italic}
+.team{min-width:0;display:flex;justify-content:center;align-items:center;gap:.55vw}.team-text{min-width:0;text-align:center;line-height:1.06}.org{font-size:clamp(12px,1.55vw,34px);font-weight:900;overflow-wrap:anywhere}.team-name{font-size:clamp(11px,1.28vw,27px);margin-top:.25vh}.logo{height:4.6vh;width:4.6vh;object-fit:contain;flex:none;display:none}.sep{text-align:center;color:#ffcf12;font-size:clamp(22px,2.6vw,52px);font-weight:900}
+.message{text-align:center;font-size:clamp(20px,2.5vw,48px);padding:3vh}.pager{position:absolute;right:1.5vw;bottom:.2vh;font-size:clamp(10px,.9vw,18px);color:#ffd21c}
+@media(max-aspect-ratio:1/1){#board{left:3%;right:3%}.org{font-size:2.5vw}.team-name{font-size:2vw}.time{font-size:3vw}}
+</style></head><body><div id="screen"><section id="board"><div id="matches" aria-live="polite"><div class="message">Programma laden...</div></div><span class="pager" id="pager"></span></section></div>
 <script>
-const CLUB='b096fce6-238c-4f01-8cb9-1ef2fe6e47a0';let matches=[],page=0;
-const clean=s=>String(s||'').replace(/\*+/g,'').trim();
-function team(m,home){const org=home?m.homeOrganisation:m.awayOrganisation;const is=org?.id===CLUB;let full=clean(home?m.homeTeamName:m.awayTeamName);let organisation=is?'BV Vikings':clean(org?.name);if(!organisation){const p=full.match(/^(BV Vikings|[^ ]+(?: [^ ]+)?)/);organisation=p?.[1]||full;}let name=full;if(name.toLowerCase().startsWith(organisation.toLowerCase()))name=name.slice(organisation.length).trim();return {organisation,name};}
+const CLUB='b096fce6-238c-4f01-8cb9-1ef2fe6e47a0';
+const LOGOS={
+  'bv vikings':'vikings.png',
+  'the jugglers':'jugglers.png',
+  'ebv the jugglers':'jugglers.png',
+  'ebv mustangs':'mustangs.png',
+  'twente buzzards':'buzzards.png',
+  'amical':'amical.png'
+};
+const PER_PAGE=5,SWITCH_MS=12000;let matches=[],pages=[],page=0;
+const clean=s=>String(s??'').replace(/\*+/g,'').trim();
 function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;}
-function teamEl(m,home){const t=team(m,home),n=el('div','team');n.append(el('div','org',t.organisation),el('div','name',t.name));return n;}
+function team(m,home){const org=home?m.homeOrganisation:m.awayOrganisation;const is=org?.id===CLUB;const full=clean(home?m.homeTeamName:m.awayTeamName);let organisation=is?'BV Vikings':clean(org?.name);if(!organisation){const p=full.match(/^(BV Vikings|[^ ]+(?: [^ ]+)?)/);organisation=p?.[1]||full;}let name=full;if(name.toLowerCase().startsWith(organisation.toLowerCase()))name=name.slice(organisation.length).trim();return {organisation,name};}
+function teamEl(m,home){const t=team(m,home),wrap=el('div','team');const key=t.organisation.toLowerCase().replace(/\s+/g,' ');const logo=LOGOS[key];if(logo){const img=el('img','logo');img.src='./logos/'+logo;img.alt='';img.onload=()=>{img.style.display='block'};img.onerror=()=>img.remove();wrap.append(img);}const words=el('div','team-text');words.append(el('div','org',t.organisation),el('div','team-name',t.name));wrap.append(words);return wrap;}
 function formatDate(s){const d=new Date(String(s).slice(0,10)+'T12:00:00Z');return new Intl.DateTimeFormat('nl-NL',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(d).toUpperCase();}
-function render(){
- const box=document.getElementById('matches');box.replaceChildren();
- if(!matches.length){box.append(el('div','message','Geen wedstrijden deze week'));document.getElementById('pager').textContent='';return;}
- const part=matches.slice(page*5,page*5+5);
- let currentDate='',group=null;
- for(const m of part){
-  const date=String(m.date).slice(0,10);
-  if(date!==currentDate){currentDate=date;group=el('div','day-group');group.append(el('div','day-heading',formatDate(date)));box.append(group);}
-  const row=el('div','match');row.append(el('div','time',String(m.startTime||'--:--').slice(0,5)),teamEl(m,true),el('div','sep','–'),teamEl(m,false));group.append(row);
- }
- document.getElementById('pager').textContent=matches.length>5?`${page+1} / ${Math.ceil(matches.length/5)}`:'';
-}
-async function load(){try{const r=await fetch('./wedstrijden.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error(r.status);const data=await r.json();matches=(data.matches||[]).sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.startTime).localeCompare(String(b.startTime)));page=0;document.getElementById('period').textContent=data.start&&data.end?`${data.start} t/m ${data.end}`:'';render();}catch(e){console.error(e);document.getElementById('date').textContent='WEDSTRIJDEN';document.getElementById('matches').replaceChildren(el('div','message','Programma tijdelijk niet beschikbaar'));}}
-load();setInterval(()=>{if(matches.length>5){page=(page+1)%Math.ceil(matches.length/5);render();}},12000);setInterval(load,15*60*1000);
+function paginate(list){const out=[];let current=[],day='';for(const m of list){const d=String(m.date).slice(0,10);if(current.length===PER_PAGE){out.push(current);current=[];day='';}current.push(m);day=d;}if(current.length)out.push(current);return out;}
+function render(){const box=document.getElementById('matches');box.replaceChildren();if(!matches.length){box.append(el('div','message','Geen wedstrijden deze week'));document.getElementById('pager').textContent='';return;}const part=pages[page]||[];let group=null,prev='';for(const m of part){const date=String(m.date).slice(0,10);if(date!==prev){group=el('div','day-group');group.append(el('div','day-heading',formatDate(date)));box.append(group);prev=date;}const row=el('div','match');row.append(el('div','time',clean(m.startTime).slice(0,5)||'--:--'),teamEl(m,true),el('div','sep','–'),teamEl(m,false));group.append(row);}document.getElementById('pager').textContent=pages.length>1?`${page+1} / ${pages.length}`:'';}
+async function load(){try{const r=await fetch('./wedstrijden.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const data=await r.json();matches=(data.matches||[]).sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.startTime).localeCompare(String(b.startTime)));pages=paginate(matches);page=0;render();}catch(e){console.error(e);document.getElementById('matches').replaceChildren(el('div','message','Programma tijdelijk niet beschikbaar'));}}
+load();setInterval(()=>{if(pages.length>1){page=(page+1)%pages.length;render();}},SWITCH_MS);setInterval(load,15*60*1000);
 </script></body></html>
