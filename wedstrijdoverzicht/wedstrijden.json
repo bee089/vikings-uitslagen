@@ -1,0 +1,313 @@
+{
+  "start": "2026-11-01",
+  "end": "2026-11-07",
+  "updatedAt": "2026-11-05T21:00:54.649Z",
+  "matches": [
+    {
+      "competition": {
+        "position": 20,
+        "disciplineId": 47,
+        "matchCategoryIds": [
+          231
+        ],
+        "id": 5866,
+        "name": "Mannen Senioren Regionaal - 5e divisie"
+      },
+      "date": "2026-11-06T00:00:00Z",
+      "startTime": "20:00:00",
+      "status": "Planned",
+      "fieldName": "Veld 1",
+      "accommodation": {
+        "id": "eb5b1733-d5ad-4716-afc3-5e037ea82d87",
+        "name": "De Kamp"
+      },
+      "accommodationName": "De Kamp",
+      "homeTeamId": 50156,
+      "awayTeamId": 47936,
+      "homeTeamGuid": "a2962dfe-cec9-4c6a-b4ba-1e22fdff09bf",
+      "awayTeamGuid": "099a5f98-6d83-4f44-91af-b150b0f28180",
+      "homeScore": null,
+      "awayScore": null,
+      "homeTeamName": "MSE-2",
+      "awayTeamName": "MSE-2",
+      "homeTeamLockerRoom": null,
+      "awayTeamLockerRoom": null,
+      "homeLogoUrl": "https://images.foys.io/foys/b096fce6-238c-4f01-8cb9-1ef2fe6e47a0/750058899184FEBDCC29F66D13DC8AF1.png?w=200",
+      "awayLogoUrl": "https://images.foys.io/foys/7e38e336-ec15-4b7e-a5df-f4c0f10d2468/A423B6A151D8648616B199EFF2F4A503.png?w=200",
+      "homeOrganisation": {
+        "id": "b096fce6-238c-4f01-8cb9-1ef2fe6e47a0",
+        "name": "BV Vikings"
+      },
+      "homeTeamSponsorClubName": null,
+      "awayOrganisation": {
+        "id": "7e38e336-ec15-4b7e-a5df-f4c0f10d2468",
+        "name": "Amical"
+      },
+      "awayTeamSponsorClubName": null,
+      "address": {
+        "address1": "Dr Albert Schweitzerlaan",
+        "address2": null,
+        "houseNumber": "1",
+        "houseNumberExtension": null,
+        "zipCode": "7772EC",
+        "country": "nl",
+        "latitude": 52.5845994947042,
+        "longitude": 6.64067679622082,
+        "city": "HARDENBERG",
+        "locationName": "Sporthaladres"
+      },
+      "isConfirmed": false,
+      "isOpenForDMF": true,
+      "isFriendly": false,
+      "myAvailabilityStatus": null,
+      "isTeamMember": false,
+      "isMatchOfficial": false,
+      "id": 509639
+    },
+    {
+      "competition": {
+        "position": 18,
+        "disciplineId": 47,
+        "matchCategoryIds": [
+          231
+        ],
+        "id": 5864,
+        "name": "Mannen Senioren Regionaal - 4e divisie"
+      },
+      "date": "2026-11-07T00:00:00Z",
+      "startTime": "14:30:00",
+      "status": "Planned",
+      "fieldName": "Veld 3",
+      "accommodation": {
+        "id": "94f1a177-36f8-47ae-a146-44654a688ccf",
+        "name": "Deppenbroek"
+      },
+      "accommodationName": "Deppenbroek",
+      "homeTeamId": 50894,
+      "awayTeamId": 48293,
+      "homeTeamGuid": "c142c9ab-b9bc-41b3-9aeb-fad93c75e768",
+      "awayTeamGuid": "6f60dd7a-ac58-4cfe-b44c-07fbcb789b70",
+      "homeScore": null,
+      "awayScore": null,
+      "homeTeamName": "MSE-3",
+      "awayTeamName": "MSE-1",
+      "homeTeamLockerRoom": null,
+      "awayTeamLockerRoom": null,
+      "homeLogoUrl": "https://images.foys.io/foys/cd9a0b4d-47de-4171-9539-51b4257135aa/8AAE171C3CA45B56E9E9FA293CE538D8.gif?w=200",
+      "awayLogoUrl": "https://images.foys.io/foys/b096fce6-238c-4f01-8cb9-1ef2fe6e47a0/750058899184FEBDCC29F66D13DC8AF1.png?w=200",
+      "homeOrganisation": {
+        "id": "cd9a0b4d-47de-4171-9539-51b4257135aa",
+        "name": "The Jugglers"
+      },
+      "homeTeamSponsorClubName": null,
+      "awayOrganisation": {
+        "id": "b096fce6-238c-4f01-8cb9-1ef2fe6e47a0",
+        "name": "BV Vikings"
+      },
+      "awayTeamSponsorClubName": null,
+      "address": {
+        "address1": "Rijnstraat",
+        "address2": null,
+        "houseNumber": "11",
+        "houseNumberExtension": null,
+        "zipCode": "7523GD",
+        "country": "nl",
+        "latitude": 52.2386630966254,
+        "longitude": 6.89871834724144,
+        "city": "ENSCHEDE",
+        "locationName": "Sporthaladres"
+      },
+      "isConfirmed": false,
+      "isOpenForDMF": true,
+      "isFriendly": false,
+      "myAvailabilityStatus": null,
+      "isTeamMember": false,
+      "isMatchOfficial": false,
+      "id": 508802
+    },
+    {
+      "competition": {
+        "position": 456,
+        "disciplineId": 47,
+        "matchCategoryIds": [
+          243,
+          244
+        ],
+        "id": 5903,
+        "name": "Gemengd U14 Regionaal 1e Helft Competitie - 5e divisie"
+      },
+      "date": "2026-11-07T00:00:00Z",
+      "startTime": "15:00:00",
+      "status": "Planned",
+      "fieldName": "Veld 1",
+      "accommodation": {
+        "id": "eb5b1733-d5ad-4716-afc3-5e037ea82d87",
+        "name": "De Kamp"
+      },
+      "accommodationName": "De Kamp",
+      "homeTeamId": 48883,
+      "awayTeamId": 49093,
+      "homeTeamGuid": "ca4038a4-e292-4836-aa05-45c6de763bf4",
+      "awayTeamGuid": "d9eaa75a-2fa2-485c-a48d-974585124c61",
+      "homeScore": null,
+      "awayScore": null,
+      "homeTeamName": "X14-1",
+      "awayTeamName": "X14-2",
+      "homeTeamLockerRoom": null,
+      "awayTeamLockerRoom": null,
+      "homeLogoUrl": "https://images.foys.io/foys/b096fce6-238c-4f01-8cb9-1ef2fe6e47a0/750058899184FEBDCC29F66D13DC8AF1.png?w=200",
+      "awayLogoUrl": "https://images.foys.io/foys/dd637da4-7b2c-4673-b80e-e9f673476a99/81f2ff30-ffde-485c-ad5a-c68308c90ee5.jpg?w=200",
+      "homeOrganisation": {
+        "id": "b096fce6-238c-4f01-8cb9-1ef2fe6e47a0",
+        "name": "BV Vikings"
+      },
+      "homeTeamSponsorClubName": null,
+      "awayOrganisation": {
+        "id": "dd637da4-7b2c-4673-b80e-e9f673476a99",
+        "name": "EBV Mustangs"
+      },
+      "awayTeamSponsorClubName": null,
+      "address": {
+        "address1": "Dr Albert Schweitzerlaan",
+        "address2": null,
+        "houseNumber": "1",
+        "houseNumberExtension": null,
+        "zipCode": "7772EC",
+        "country": "nl",
+        "latitude": 52.5845994947042,
+        "longitude": 6.64067679622082,
+        "city": "HARDENBERG",
+        "locationName": "Sporthaladres"
+      },
+      "isConfirmed": false,
+      "isOpenForDMF": true,
+      "isFriendly": false,
+      "myAvailabilityStatus": null,
+      "isTeamMember": false,
+      "isMatchOfficial": false,
+      "id": 497178
+    },
+    {
+      "competition": {
+        "position": 284,
+        "disciplineId": 47,
+        "matchCategoryIds": [
+          239
+        ],
+        "id": 5894,
+        "name": "Mannen U18 Regionaal 1e Helft Competitie - 4e divisie"
+      },
+      "date": "2026-11-07T00:00:00Z",
+      "startTime": "17:00:00",
+      "status": "Planned",
+      "fieldName": "Veld 1",
+      "accommodation": {
+        "id": "eb5b1733-d5ad-4716-afc3-5e037ea82d87",
+        "name": "De Kamp"
+      },
+      "accommodationName": "De Kamp",
+      "homeTeamId": 47450,
+      "awayTeamId": 50218,
+      "homeTeamGuid": "98d50b17-72cf-4c67-9271-bd3c338131be",
+      "awayTeamGuid": "acdec342-6aa6-4e84-9347-864188d92379",
+      "homeScore": null,
+      "awayScore": null,
+      "homeTeamName": "M18-1",
+      "awayTeamName": "M18-2",
+      "homeTeamLockerRoom": null,
+      "awayTeamLockerRoom": null,
+      "homeLogoUrl": "https://images.foys.io/foys/b096fce6-238c-4f01-8cb9-1ef2fe6e47a0/750058899184FEBDCC29F66D13DC8AF1.png?w=200",
+      "awayLogoUrl": "https://images.foys.io/foys/1b0eff3f-7001-4b6d-943e-454726f04f37/6afd07cb-d7f7-478e-a8be-84929bb649e7.jpg?w=200",
+      "homeOrganisation": {
+        "id": "b096fce6-238c-4f01-8cb9-1ef2fe6e47a0",
+        "name": "BV Vikings"
+      },
+      "homeTeamSponsorClubName": null,
+      "awayOrganisation": {
+        "id": "1b0eff3f-7001-4b6d-943e-454726f04f37",
+        "name": "Twente Buzzards"
+      },
+      "awayTeamSponsorClubName": null,
+      "address": {
+        "address1": "Dr Albert Schweitzerlaan",
+        "address2": null,
+        "houseNumber": "1",
+        "houseNumberExtension": null,
+        "zipCode": "7772EC",
+        "country": "nl",
+        "latitude": 52.5845994947042,
+        "longitude": 6.64067679622082,
+        "city": "HARDENBERG",
+        "locationName": "Sporthaladres"
+      },
+      "isConfirmed": false,
+      "isOpenForDMF": true,
+      "isFriendly": false,
+      "myAvailabilityStatus": null,
+      "isTeamMember": false,
+      "isMatchOfficial": false,
+      "id": 502304
+    },
+    {
+      "competition": {
+        "position": 308,
+        "disciplineId": 47,
+        "matchCategoryIds": [
+          240
+        ],
+        "id": 5890,
+        "name": "Vrouwen U18 Regionaal 1e Helft Competitie - 3e divisie"
+      },
+      "date": "2026-11-07T00:00:00Z",
+      "startTime": "19:00:00",
+      "status": "Planned",
+      "fieldName": "Veld 1",
+      "accommodation": {
+        "id": "eb5b1733-d5ad-4716-afc3-5e037ea82d87",
+        "name": "De Kamp"
+      },
+      "accommodationName": "De Kamp",
+      "homeTeamId": 50907,
+      "awayTeamId": 48280,
+      "homeTeamGuid": "587c95d7-0409-47bd-84c0-e19746673af7",
+      "awayTeamGuid": "beb3d94a-5ce6-4daa-ace7-d2fcbdf142e8",
+      "homeScore": null,
+      "awayScore": null,
+      "homeTeamName": "V18-1",
+      "awayTeamName": "V18-1",
+      "homeTeamLockerRoom": null,
+      "awayTeamLockerRoom": null,
+      "homeLogoUrl": "https://images.foys.io/foys/b096fce6-238c-4f01-8cb9-1ef2fe6e47a0/750058899184FEBDCC29F66D13DC8AF1.png?w=200",
+      "awayLogoUrl": "https://images.foys.io/foys/1b0eff3f-7001-4b6d-943e-454726f04f37/6afd07cb-d7f7-478e-a8be-84929bb649e7.jpg?w=200",
+      "homeOrganisation": {
+        "id": "b096fce6-238c-4f01-8cb9-1ef2fe6e47a0",
+        "name": "BV Vikings"
+      },
+      "homeTeamSponsorClubName": null,
+      "awayOrganisation": {
+        "id": "1b0eff3f-7001-4b6d-943e-454726f04f37",
+        "name": "Twente Buzzards"
+      },
+      "awayTeamSponsorClubName": null,
+      "address": {
+        "address1": "Dr Albert Schweitzerlaan",
+        "address2": null,
+        "houseNumber": "1",
+        "houseNumberExtension": null,
+        "zipCode": "7772EC",
+        "country": "nl",
+        "latitude": 52.5845994947042,
+        "longitude": 6.64067679622082,
+        "city": "HARDENBERG",
+        "locationName": "Sporthaladres"
+      },
+      "isConfirmed": false,
+      "isOpenForDMF": true,
+      "isFriendly": false,
+      "myAvailabilityStatus": null,
+      "isTeamMember": false,
+      "isMatchOfficial": false,
+      "id": 513705
+    }
+  ]
+}
