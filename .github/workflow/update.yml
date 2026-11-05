@@ -1,0 +1,43 @@
+name: Vikings wedstrijdoverzicht bijwerken
+
+on:
+  schedule:
+    # Iedere zondag om 07:00 uur Nederlandse wintertijd
+    # In de zomertijd is dit 08:00 uur
+    - cron: '0 6 * * 0'
+
+  # Hiermee kun je de workflow ook handmatig starten
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository ophalen
+        uses: actions/checkout@v4
+
+      - name: Node.js installeren
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Wedstrijden ophalen via FOYS
+        run: node scripts/update.mjs
+
+      - name: Wijzigingen opslaan
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add wedstrijdoverzicht/wedstrijden.json
+
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen gevonden."
+          else
+            git commit -m "Automatische update Vikings wedstrijdprogramma"
+            git push
+          fi
