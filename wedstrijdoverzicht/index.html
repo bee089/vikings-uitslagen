@@ -3,10 +3,10 @@
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#001b46;color:white;font-family:Arial,Helvetica,sans-serif}
 #screen{position:relative;width:100vw;height:100vh;overflow:hidden;background:#00265c url('./achtergrond.png') center/100% 100% no-repeat}
-/* Het afdekvlak blijft op de oude posterregels liggen. De nieuwe inhoud begint lager. */
-#board{position:absolute;left:10%;right:10%;top:16.1%;bottom:15.5%;background:linear-gradient(110deg,#002351 0%,#003578 60%,#03428b 100%);border-radius:1.1vw;box-shadow:0 0 1.5vw #00214a;display:flex;flex-direction:column;padding:13vh 2.2vw 1vh;gap:.6vh}
+/* Afdekvlak verbergt de oude posterwedstrijden; nieuwe regels worden onderaan uitgelijnd. */
+#board{position:absolute;left:10%;right:10%;top:16.1%;bottom:15.5%;background:linear-gradient(110deg,#002351 0%,#003578 60%,#03428b 100%);border-radius:1.1vw;box-shadow:0 0 1.5vw #00214a;display:flex;flex-direction:column;padding:1vh 2.2vw 1vh;gap:.6vh}
 #date{display:none}
-#matches{flex:1;display:flex;flex-direction:column;justify-content:flex-start;gap:.6vh;min-height:0}
+#matches{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:.6vh;min-height:0}
 .day-group{display:flex;flex-direction:column;gap:.5vh;min-height:0}
 .day-heading{align-self:center;background:#ffcc08;color:#061c40;padding:.35vh 3vw;font-size:clamp(17px,2.15vw,42px);font-weight:1000;text-transform:uppercase;text-align:center;transform:skew(-5deg);white-space:nowrap;margin:.15vh 0 .3vh}
 .match{display:grid;grid-template-columns:20% minmax(0,1fr) 5% minmax(0,1fr);align-items:center;height:7.6vh;min-height:0;background:linear-gradient(90deg,#003471,#0055a9);border-bottom:2px solid #ffd21c;border-radius:1vw;padding:.35vh .6vw;gap:.7vw}
